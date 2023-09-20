@@ -1,6 +1,6 @@
-module github.com/NVIDIA/dcgm-exporter
+module github.com/youscan/dcgm-exporter
 
-go 1.17
+go 1.21
 
 replace (
 	k8s.io/api => k8s.io/api v0.20.2

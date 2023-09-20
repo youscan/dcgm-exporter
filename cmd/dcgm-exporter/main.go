@@ -28,7 +28,7 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/NVIDIA/dcgm-exporter/pkg/dcgmexporter"
+	"github.com/youscan/dcgm-exporter/pkg/dcgmexporter"
 
 	"github.com/NVIDIA/go-dcgm/pkg/dcgm"
 	"github.com/sirupsen/logrus"
@@ -66,8 +66,8 @@ func main() {
 	c.Version = BuildVersion
 
 	deviceUsageTemplate := `Specify which devices dcgm-exporter monitors.
-	Possible values: {{.FlexKey}} or 
-	                 {{.MajorKey}}[:id1[,-id2...] or 
+	Possible values: {{.FlexKey}} or
+	                 {{.MajorKey}}[:id1[,-id2...] or
 	                 {{.MinorKey}}[:id1[,-id2...].
 	If an id list is used, then devices with match IDs must exist on the system. For example:
 		(default) = monitor all GPU instances in MIG mode, all GPUs if MIG mode is disabled. (See {{.FlexKey}})
@@ -79,9 +79,9 @@ func main() {
                              This is our recommended option for single or mixed MIG Strategies.
 		{{.MajorKey}}:0,1 = monitor GPUs 0 and 1
 		{{.MinorKey}}:0,2-4 = monitor GPU instances 0, 2, 3, and 4.
-	
+
 	NOTE 1: -i cannot be specified unless MIG mode is enabled.
-	NOTE 2: Any time indices are specified, those indices must exist on the system.	
+	NOTE 2: Any time indices are specified, those indices must exist on the system.
 	NOTE 3: In MIG mode, only -f or -i with a range can be specified. GPUs are not assigned to pods
 		and therefore reporting must occur at the GPU instance level.`
 
